@@ -1,0 +1,11 @@
+{
+  "version": "1.0",
+  "taskId": "bootstrap-agent-contract-v1",
+  "commitSha": "pending",
+  "environment": "local-sandbox",
+  "timestampUtc": null,
+  "changedFiles": [],
+  "verified": [],
+  "unverified": ["application runtime is not configured"],
+  "checks": []
+}

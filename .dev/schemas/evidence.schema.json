@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Celia Evidence Contract v1",
+  "type": "object",
+  "required": ["version", "taskId", "commitSha", "environment", "timestampUtc", "changedFiles", "checks"],
+  "properties": {
+    "version": {"const": "1.0"},
+    "taskId": {"type": "string"},
+    "commitSha": {"type": "string"},
+    "environment": {"type": "string"},
+    "timestampUtc": {"type": "string"},
+    "changedFiles": {"type": "array"},
+    "verified": {"type": "array"},
+    "unverified": {"type": "array"},
+    "checks": {"type": "array", "items": {"type": "object", "required": ["command", "result"]}}
+  }
+}

@@ -1,10 +1,11 @@
-.PHONY: setup check lint typecheck test build verify deploy
+.PHONY: setup check contract lint typecheck test build verify deploy
 
 setup:
 	./scripts/setup.sh
 
 check:
 	./scripts/check.sh
+	./scripts/contract-validate.sh
 
 lint:
 	./scripts/test.sh lint

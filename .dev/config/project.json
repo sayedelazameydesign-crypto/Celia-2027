@@ -11,7 +11,45 @@
     "verify": "make verify",
     "deploy": "make deploy"
   },
-  "gates": ["test", "build", "verify"],
+  "gates": [
+    "check",
+    "lint",
+    "typecheck",
+    "test",
+    "build",
+    "runtime"
+  ],
   "productionRequiresManualApproval": true,
-  "secretsPolicy": "external-only"
+  "secretsPolicy": "external-only",
+  "contractVersion": "1.0",
+  "contracts": {
+    "task": ".dev/contracts/TASK_CONTRACT.md",
+    "changePolicy": ".dev/contracts/CHANGE_POLICY.md",
+    "verification": ".dev/contracts/VERIFICATION_CONTRACT.md",
+    "evidence": ".dev/contracts/EVIDENCE_CONTRACT.md",
+    "ci": ".dev/contracts/CI_CONTRACT.md",
+    "deployment": ".dev/contracts/DEPLOYMENT_CONTRACT.md",
+    "handoff": ".dev/contracts/HANDOFF_CONTRACT.md"
+  },
+  "schemas": {
+    "task": ".dev/schemas/task.schema.json",
+    "evidence": ".dev/schemas/evidence.schema.json"
+  },
+  "checkpointDirectory": "checkpoint",
+  "states": [
+    "PLANNED",
+    "RUNNING",
+    "BLOCKED",
+    "COMPLETED"
+  ],
+  "evidenceFields": [
+    "command",
+    "result",
+    "commitSha",
+    "environment",
+    "timestampUtc",
+    "changedFiles",
+    "verified",
+    "unverified"
+  ]
 }

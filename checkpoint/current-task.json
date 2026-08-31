@@ -1,0 +1,10 @@
+{
+  "version": "1.0",
+  "taskId": "bootstrap-agent-contract-v1",
+  "definition": "Establish and validate a vendor-neutral Agent Contract v1 for Celia-2027.",
+  "inputs": ["repository files", "AGENTS.md", "project manifest"],
+  "successCriteria": ["contracts are documented", "schemas validate", "make check passes", "evidence is recorded"],
+  "scope": [".dev/", "checkpoint/", "scripts/", "Makefile", "docs/"],
+  "state": "RUNNING",
+  "blocker": null
+}
