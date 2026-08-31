@@ -2,10 +2,13 @@
   "schemaVersion": 1,
   "name": "Celia-2027",
   "repositoryMode": "agent-ready",
-  "runtime": null,
-  "packageManager": null,
+  "runtime": "node-24",
+  "packageManager": "npm",
   "commands": {
-    "setup": "make setup",
+    "setup": "npm install",
+    "check": "make check",
+    "lint": "make lint",
+    "typecheck": "make typecheck",
     "test": "make test",
     "build": "make build",
     "verify": "make verify",
@@ -51,5 +54,13 @@
     "changedFiles",
     "verified",
     "unverified"
-  ]
+  ],
+  "language": "typescript",
+  "applicationReady": true,
+  "applicationStructure": {
+    "web": "apps/web",
+    "api": "apps/api",
+    "contracts": "packages/contracts",
+    "shared": "packages/shared"
+  }
 }

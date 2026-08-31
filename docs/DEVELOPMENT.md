@@ -1,3 +1,3 @@
 # Development
 
-Use `make setup` to prepare dependencies when a package manifest exists. Use `make test` for lint, type checking, and tests; use `make build` for a production build; and use `make verify` for deterministic checks. Update this document whenever the project adds a language, framework, package manager, or required local service.
+The application workspace uses Node.js 24+, npm workspaces, TypeScript, React/Vite, and a separate Node API. Run `npm install`, then `make test`, `make build`, and `make verify`. The API health endpoint is `GET /health` on port `4173` by default. Keep frontend, API, contracts, and shared utilities in their declared workspace boundaries.

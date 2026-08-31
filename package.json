@@ -1,0 +1,35 @@
+{
+  "name": "celia-2027",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Agent-ready Celia 2027 application workspace",
+  "type": "module",
+  "engines": {"node": ">=24.0.0"},
+  "workspaces": ["apps/*", "packages/*"],
+  "scripts": {
+    "setup": "npm install",
+    "lint": "eslint .",
+    "typecheck": "tsc -b tsconfig.json apps/api/tsconfig.json apps/web/tsconfig.json packages/contracts/tsconfig.json packages/shared/tsconfig.json",
+    "test": "vitest run",
+    "build": "npm run build --workspace packages/contracts && npm run build --workspace packages/shared && npm run build --workspace apps/api && npm run build --workspace apps/web",
+    "dev:web": "npm run dev --workspace apps/web",
+    "dev:api": "npm run dev --workspace apps/api"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.17.0",
+    "@types/node": "^22.10.5",
+    "@types/react": "^19.0.3",
+    "@types/react-dom": "^19.0.2",
+    "@vitejs/plugin-react": "^4.3.4",
+    "eslint": "^9.17.0",
+    "eslint-plugin-react-hooks": "^5.1.0",
+    "eslint-plugin-react-refresh": "^0.4.16",
+    "globals": "^15.14.0",
+    "prettier": "^3.4.2",
+    "typescript": "^5.7.2",
+    "typescript-eslint": "^8.19.1",
+    "vite": "^6.0.5",
+    "vitest": "^2.1.8"
+  },
+  "dependencies": {"zod": "^3.24.1"}
+}

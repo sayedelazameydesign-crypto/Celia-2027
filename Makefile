@@ -14,7 +14,7 @@ typecheck:
 	./scripts/test.sh typecheck
 
 test:
-	./scripts/test.sh test
+	./scripts/test.sh all
 
 build:
 	./scripts/build.sh

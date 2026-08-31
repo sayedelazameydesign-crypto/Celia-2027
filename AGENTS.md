@@ -43,3 +43,6 @@ If a check or verification gate fails, stop. Do not claim success. Record the co
 
 ## Change boundaries
 Do not modify workflow permissions, deployment targets, secret names, or security policy to bypass a failure. Ask for clarification when a change could affect production, authentication, billing, data retention, or external integrations.
+
+## Application bootstrap
+The approved runtime is Node.js 24+, TypeScript, React/Vite, and a separate Node API. Application boundaries are `apps/web`, `apps/api`, `packages/contracts`, and `packages/shared`. Do not add product features during bootstrap.

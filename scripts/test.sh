@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 mode="${1:-all}"
-run_if_script() { local name="$1"; shift; if [[ -f package.json ]] && node -e "const p=require('./package.json'); process.exit(p.scripts&&p.scripts['$name']?0:1)" 2>/dev/null; then "$@"; echo "RESULT: PASS ($name)"; else echo "[$name] skipped: no configured package script."; echo "RESULT: SKIP ($name)"; fi; }
+run_if_script() { local name="$1"; shift; if [[ -f package.json ]] && node -e "const p=require('./package.json'); process.exit(p.scripts&&p.scripts['$name']?0:1)" 2>/dev/null; then "$@"; echo "RESULT: PASS ($name)"; else echo "[$name] unavailable: no configured package script."; echo "RESULT: BLOCKED ($name)"; return 1; fi; }
 case "$mode" in
   lint) run_if_script lint npm run lint ;;
   typecheck) run_if_script typecheck npm run typecheck ;;
