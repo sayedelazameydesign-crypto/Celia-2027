@@ -4,7 +4,7 @@ import tseslint from 'typescript-eslint';
 import { globalIgnores } from 'eslint/config';
 
 export default tseslint.config(
-  globalIgnores(['**/dist/**', 'node_modules/**', '**/vite.config.js', '**/vite.config.d.ts']),
+  globalIgnores(['**/dist/**', 'node_modules/**', '**/vite.config.js', '**/vite.config.d.ts', '**/vite.config.ts']),
   eslint.configs.recommended,
   ...tseslint.configs.recommended,
   {
