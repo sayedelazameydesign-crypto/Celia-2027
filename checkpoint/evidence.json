@@ -3,7 +3,7 @@
   "taskId": "TASK-001-application-runtime-bootstrap",
   "sourceCommitSha": "61a5aec4fa916e662f924844a15d769a6e44a6a8",
   "verificationRunId": "vr-20260831T064458Z-61a5aec4",
-  "environment": "local-sandbox",
+  "environment": "local-sandbox-node-22.13.0; target-node-24",
   "result": "PASS",
   "timestampUtc": "2026-08-31T06:44:58Z",
   "changedFiles": [
@@ -22,6 +22,7 @@
     "API runtime health endpoint"
   ],
   "unverified": [
+    "exact Node 24 runtime validation (local runner is Node 22.13.0)",
     "production deployment",
     "database integration",
     "end-to-end browser tests"
