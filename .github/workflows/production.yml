@@ -1,0 +1,33 @@
+name: Production
+
+on:
+  workflow_dispatch:
+    inputs:
+      commit_sha:
+        description: 'Commit SHA already verified in staging'
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+env:
+  DEPLOY_TARGET: production
+  PRODUCTION_APPROVED: true
+
+jobs:
+  deploy-and-verify:
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.commit_sha }}
+      - name: Build
+        run: make build
+      - name: Deploy to production
+        run: ./scripts/deploy.sh
+      - name: Verify production
+        env:
+          HEALTHCHECK_URL: ${{ vars.HEALTHCHECK_URL }}
+        run: make verify

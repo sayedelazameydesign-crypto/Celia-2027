@@ -1,0 +1,27 @@
+name: Staging
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+env:
+  DEPLOY_TARGET: staging
+
+jobs:
+  deploy-and-verify:
+    runs-on: ubuntu-latest
+    environment: staging
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build
+        run: make build
+      - name: Deploy to staging
+        run: ./scripts/deploy.sh
+      - name: Verify staging
+        env:
+          HEALTHCHECK_URL: ${{ vars.HEALTHCHECK_URL }}
+        run: make verify
