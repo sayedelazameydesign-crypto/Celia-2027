@@ -1,11 +1,57 @@
 {
   "version": "1.0",
   "taskId": "bootstrap-agent-contract-v1",
-  "commitSha": "pending",
+  "commitSha": "3369905a3f4ef1a5eead0691f428ad0c70f5eff8",
   "environment": "local-sandbox",
-  "timestampUtc": null,
-  "changedFiles": [],
-  "verified": [],
-  "unverified": ["application runtime is not configured"],
-  "checks": []
+  "timestampUtc": "2026-08-31T06:29:07Z",
+  "changedFiles": [
+    ".dev/config/project.json",
+    ".dev/contracts/CHANGE_POLICY.md",
+    ".dev/contracts/CI_CONTRACT.md",
+    ".dev/contracts/DEPLOYMENT_CONTRACT.md",
+    ".dev/contracts/EVIDENCE_CONTRACT.md",
+    ".dev/contracts/HANDOFF_CONTRACT.md",
+    ".dev/contracts/TASK_CONTRACT.md",
+    ".dev/contracts/VERIFICATION_CONTRACT.md",
+    ".dev/schemas/evidence.schema.json",
+    ".dev/schemas/task.schema.json",
+    "Makefile",
+    "checkpoint/current-task.json",
+    "checkpoint/evidence.json",
+    "checkpoint/handoff.md",
+    "checkpoint/state.json",
+    "scripts/contract-validate.sh"
+  ],
+  "verified": [
+    "repository contracts",
+    "JSON metadata",
+    "executable wrappers",
+    "required command exit status"
+  ],
+  "unverified": [
+    "application runtime",
+    "health endpoint",
+    "application lint/typecheck/tests/build"
+  ],
+  "checks": [
+    {
+      "command": "make check",
+      "result": "PASS"
+    },
+    {
+      "command": "make test",
+      "result": "PASS",
+      "note": "No package test script configured; explicit skip reported."
+    },
+    {
+      "command": "make build",
+      "result": "PASS",
+      "note": "No package build script configured; explicit skip reported."
+    },
+    {
+      "command": "make verify",
+      "result": "PASS",
+      "note": "Runtime health check skipped because HEALTHCHECK_URL is not configured."
+    }
+  ]
 }

@@ -1,0 +1,34 @@
+$ make check
+./scripts/check.sh
+[check] present: AGENTS.md
+[check] present: README.md
+[check] present: CONTRIBUTING.md
+[check] present: SECURITY.md
+[check] present: Makefile
+[check] executable: scripts/setup.sh
+[check] executable: scripts/test.sh
+[check] executable: scripts/build.sh
+[check] executable: scripts/verify.sh
+[check] executable: verification/smoke.sh
+[check] valid project metadata
+./scripts/contract-validate.sh
+[contract] valid JSON: checkpoint/current-task.json
+[contract] valid JSON: checkpoint/state.json
+[contract] valid JSON: checkpoint/evidence.json
+[contract] valid JSON: .dev/config/project.json
+[contract] task and evidence contract fields present
+STATUS: PASS
+$ make test
+./scripts/test.sh test
+[test] skipped: no configured package script.
+STATUS: PASS
+$ make build
+./scripts/build.sh
+[build] skipped: no configured package build script.
+STATUS: PASS
+$ make verify
+./scripts/verify.sh
+Health check skipped: HEALTHCHECK_URL is not configured.
+Verification timestamp: 2026-08-31T06:28:53Z
+Repository commit: local
+STATUS: PASS

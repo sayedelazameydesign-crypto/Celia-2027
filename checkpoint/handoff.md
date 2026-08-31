@@ -2,8 +2,10 @@
 
 **Task:** Bootstrap Agent Contract v1.
 
-**State:** RUNNING until the required commands complete and evidence is updated. The repository has no application runtime or package manifest yet.
+**State:** COMPLETED for the repository contract layer. The application runtime is not configured yet.
 
-**Next command:** `make check && make test && make build && make verify`
+**Completed:** Contract documents, schemas, machine-readable manifest, validation scripts, evidence record, and raw command output.
 
-**Completion rule:** Update `checkpoint/evidence.json`, set task state to `COMPLETED` only when all applicable gates pass, and report any runtime check that remains unavailable.
+**Next step:** Architecture Gate review, then select and implement the application runtime.
+
+**Evidence:** Read `checkpoint/evidence.json` and `checkpoint/raw-results.txt`.
