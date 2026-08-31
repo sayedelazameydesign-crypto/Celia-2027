@@ -8,19 +8,22 @@ root = Path(__file__).resolve().parents[1]
 def run(*args):
     return subprocess.check_output(args, cwd=root, text=True).strip()
 
-sha = run('git', 'rev-parse', 'HEAD')
+source_sha = run('git', 'rev-parse', 'HEAD')
+run_id = 'vr-' + datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ') + '-' + source_sha[:8]
 changed = run('git', 'diff', '--name-only', 'HEAD^', 'HEAD').splitlines()
 checks = [
     {'command': 'make check', 'result': 'PASS'},
-    {'command': 'make test', 'result': 'PASS', 'note': 'No package test script configured; explicit skip reported.'},
-    {'command': 'make build', 'result': 'PASS', 'note': 'No package build script configured; explicit skip reported.'},
-    {'command': 'make verify', 'result': 'PASS', 'note': 'Runtime health check skipped because HEALTHCHECK_URL is not configured.'},
+    {'command': 'make test', 'result': 'SKIP', 'reason': 'No package test script configured.'},
+    {'command': 'make build', 'result': 'SKIP', 'reason': 'No package build script configured.'},
+    {'command': 'make verify', 'result': 'SKIP', 'reason': 'HEALTHCHECK_URL is not configured; runtime is unavailable.'},
 ]
 evidence = {
     'version': '1.0',
     'taskId': 'bootstrap-agent-contract-v1',
-    'commitSha': sha,
+    'sourceCommitSha': source_sha,
+    'verificationRunId': run_id,
     'environment': 'local-sandbox',
+    'result': 'PASS',
     'timestampUtc': datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace('+00:00', 'Z'),
     'changedFiles': changed,
     'verified': ['repository contracts', 'JSON metadata', 'executable wrappers', 'required command exit status'],
@@ -37,4 +40,4 @@ task['successCriteria'].append('raw command output is preserved in checkpoint/ra
 (root / 'checkpoint/current-task.json').write_text(json.dumps(task, indent=2) + '\n')
 handoff = '''# Handoff Checkpoint\n\n**Task:** Bootstrap Agent Contract v1.\n\n**State:** COMPLETED for the repository contract layer. The application runtime is not configured yet.\n\n**Completed:** Contract documents, schemas, machine-readable manifest, validation scripts, evidence record, and raw command output.\n\n**Next step:** Architecture Gate review, then select and implement the application runtime.\n\n**Evidence:** Read `checkpoint/evidence.json` and `checkpoint/raw-results.txt`.\n'''
 (root / 'checkpoint/handoff.md').write_text(handoff)
-print(f'Recorded evidence for {sha}')
+print(f'Recorded evidence for source commit {source_sha} (run {run_id})')

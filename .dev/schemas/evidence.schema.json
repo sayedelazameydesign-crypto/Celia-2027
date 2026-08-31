@@ -2,16 +2,18 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "Celia Evidence Contract v1",
   "type": "object",
-  "required": ["version", "taskId", "commitSha", "environment", "timestampUtc", "changedFiles", "checks"],
+  "required": ["version", "taskId", "sourceCommitSha", "verificationRunId", "environment", "result", "timestampUtc", "changedFiles", "checks"],
   "properties": {
     "version": {"const": "1.0"},
     "taskId": {"type": "string"},
-    "commitSha": {"type": "string"},
+    "sourceCommitSha": {"type": "string", "minLength": 1},
+    "verificationRunId": {"type": "string", "minLength": 1},
     "environment": {"type": "string"},
+    "result": {"enum": ["PASS", "FAIL", "SKIP", "BLOCKED"]},
     "timestampUtc": {"type": "string"},
     "changedFiles": {"type": "array"},
     "verified": {"type": "array"},
     "unverified": {"type": "array"},
-    "checks": {"type": "array", "items": {"type": "object", "required": ["command", "result"]}}
+    "checks": {"type": "array", "items": {"type": "object", "required": ["command", "result"], "properties": {"command": {"type": "string"}, "result": {"enum": ["PASS", "FAIL", "SKIP", "BLOCKED"]}, "reason": {"type": "string"}}}}
   }
 }
