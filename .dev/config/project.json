@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "name": "Celia-2027",
+  "repositoryMode": "agent-ready",
+  "runtime": null,
+  "packageManager": null,
+  "commands": {
+    "setup": "make setup",
+    "test": "make test",
+    "build": "make build",
+    "verify": "make verify",
+    "deploy": "make deploy"
+  },
+  "gates": ["test", "build", "verify"],
+  "productionRequiresManualApproval": true,
+  "secretsPolicy": "external-only"
+}

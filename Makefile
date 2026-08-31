@@ -1,7 +1,10 @@
-.PHONY: setup lint typecheck test build verify deploy
+.PHONY: setup check lint typecheck test build verify deploy
 
 setup:
 	./scripts/setup.sh
+
+check:
+	./scripts/check.sh
 
 lint:
 	./scripts/test.sh lint
