@@ -1,13 +1,51 @@
 {
   "version": "1.0",
   "taskId": "bootstrap-agent-contract-v1",
-  "sourceCommitSha": "pending-source-commit",
-  "verificationRunId": "pending-verification-run",
+  "sourceCommitSha": "5f678b14fd9973259bd59a0c34ea6944f1af9fc4",
+  "verificationRunId": "vr-20260831T063443Z-5f678b14",
   "environment": "local-sandbox",
-  "result": "SKIP",
-  "timestampUtc": null,
-  "changedFiles": [],
-  "verified": [],
-  "unverified": ["verification has not been run for the pending source commit"],
-  "checks": []
+  "result": "PASS",
+  "timestampUtc": "2026-08-31T06:34:43Z",
+  "changedFiles": [
+    ".dev/contracts/EVIDENCE_CONTRACT.md",
+    ".dev/schemas/evidence.schema.json",
+    "checkpoint/evidence.json",
+    "scripts/build.sh",
+    "scripts/contract-validate.sh",
+    "scripts/record-evidence.py",
+    "scripts/test.sh",
+    "verification/smoke.sh"
+  ],
+  "verified": [
+    "repository contracts",
+    "JSON metadata",
+    "executable wrappers",
+    "required command exit status"
+  ],
+  "unverified": [
+    "application runtime",
+    "health endpoint",
+    "application lint/typecheck/tests/build"
+  ],
+  "checks": [
+    {
+      "command": "make check",
+      "result": "PASS"
+    },
+    {
+      "command": "make test",
+      "result": "SKIP",
+      "reason": "No package test script configured."
+    },
+    {
+      "command": "make build",
+      "result": "SKIP",
+      "reason": "No package build script configured."
+    },
+    {
+      "command": "make verify",
+      "result": "SKIP",
+      "reason": "HEALTHCHECK_URL is not configured; runtime is unavailable."
+    }
+  ]
 }

@@ -17,18 +17,21 @@ $ make check
 [contract] valid JSON: checkpoint/evidence.json
 [contract] valid JSON: .dev/config/project.json
 [contract] task and evidence contract fields present
-STATUS: PASS
+RESULT: PASS (command)
 $ make test
 ./scripts/test.sh test
 [test] skipped: no configured package script.
-STATUS: PASS
+RESULT: SKIP (test)
+RESULT: PASS (command)
 $ make build
 ./scripts/build.sh
 [build] skipped: no configured package build script.
-STATUS: PASS
+RESULT: SKIP (build)
+RESULT: PASS (command)
 $ make verify
 ./scripts/verify.sh
 Health check skipped: HEALTHCHECK_URL is not configured.
-Verification timestamp: 2026-08-31T06:28:53Z
+RESULT: SKIP (runtime)
+Verification timestamp: 2026-08-31T06:34:34Z
 Repository commit: local
-STATUS: PASS
+RESULT: PASS (command)

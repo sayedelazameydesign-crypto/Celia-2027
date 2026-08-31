@@ -12,6 +12,7 @@
     "schemas validate",
     "make check passes",
     "evidence is recorded",
+    "raw command output is preserved in checkpoint/raw-results.txt",
     "raw command output is preserved in checkpoint/raw-results.txt"
   ],
   "scope": [
