@@ -1,31 +1,30 @@
 {
   "version": "1.0",
-  "taskId": "bootstrap-agent-contract-v1",
-  "sourceCommitSha": "5f678b14fd9973259bd59a0c34ea6944f1af9fc4",
-  "verificationRunId": "vr-20260831T063443Z-5f678b14",
+  "taskId": "TASK-001-application-runtime-bootstrap",
+  "sourceCommitSha": "61a5aec4fa916e662f924844a15d769a6e44a6a8",
+  "verificationRunId": "vr-20260831T064458Z-61a5aec4",
   "environment": "local-sandbox",
   "result": "PASS",
-  "timestampUtc": "2026-08-31T06:34:43Z",
+  "timestampUtc": "2026-08-31T06:44:58Z",
   "changedFiles": [
-    ".dev/contracts/EVIDENCE_CONTRACT.md",
-    ".dev/schemas/evidence.schema.json",
-    "checkpoint/evidence.json",
-    "scripts/build.sh",
-    "scripts/contract-validate.sh",
-    "scripts/record-evidence.py",
-    "scripts/test.sh",
-    "verification/smoke.sh"
+    "checkpoint/raw-results.txt",
+    "eslint.config.js",
+    "scripts/verify.sh"
   ],
   "verified": [
     "repository contracts",
     "JSON metadata",
-    "executable wrappers",
-    "required command exit status"
+    "lint",
+    "typecheck",
+    "Vitest health test",
+    "TypeScript build",
+    "Vite build",
+    "API runtime health endpoint"
   ],
   "unverified": [
-    "application runtime",
-    "health endpoint",
-    "application lint/typecheck/tests/build"
+    "production deployment",
+    "database integration",
+    "end-to-end browser tests"
   ],
   "checks": [
     {
@@ -34,18 +33,15 @@
     },
     {
       "command": "make test",
-      "result": "SKIP",
-      "reason": "No package test script configured."
+      "result": "PASS"
     },
     {
       "command": "make build",
-      "result": "SKIP",
-      "reason": "No package build script configured."
+      "result": "PASS"
     },
     {
       "command": "make verify",
-      "result": "SKIP",
-      "reason": "HEALTHCHECK_URL is not configured; runtime is unavailable."
+      "result": "PASS"
     }
   ]
 }

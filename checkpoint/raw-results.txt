@@ -41,8 +41,8 @@ RESULT: PASS (typecheck)
 
  Test Files  1 passed (1)
       Tests  1 passed (1)
-   Start at  06:43:49
-   Duration  329ms (transform 49ms, setup 0ms, collect 100ms, tests 4ms, environment 0ms, prepare 59ms)
+   Start at  06:44:44
+   Duration  338ms (transform 51ms, setup 0ms, collect 105ms, tests 4ms, environment 0ms, prepare 60ms)
 
 RESULT: PASS (test)
 COMMAND_STATUS: PASS
@@ -76,11 +76,13 @@ computing gzip size...
 dist/index.html                   0.36 kB │ gzip:  0.26 kB
 dist/assets/index-DoZuUCde.css    0.48 kB │ gzip:  0.33 kB
 dist/assets/index-CKuUJQ7i.js   194.86 kB │ gzip: 61.02 kB
-✓ built in 1.02s
+✓ built in 986ms
 RESULT: PASS (build)
 COMMAND_STATUS: PASS
 $ make verify
 ./scripts/verify.sh
-[runtime] BLOCKED: API build is missing.
-make: *** [Makefile:23: verify] Error 1
-COMMAND_STATUS: FAIL
+{"status":"ok","service":"celia-api","version":"0.1.0"}
+RESULT: PASS (runtime)
+Verification timestamp: 2026-08-31T06:44:51Z
+Repository commit: local
+COMMAND_STATUS: PASS

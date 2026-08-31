@@ -2,16 +2,31 @@
   "version": "1.0",
   "taskId": "TASK-001-application-runtime-bootstrap",
   "definition": "Bootstrap the Celia-2027 application runtime without starting feature development.",
-  "inputs": ["approved Node 24 and TypeScript stack", "React/Vite frontend", "separate Node API", "existing Agent Contract v1"],
+  "inputs": [
+    "approved Node 24 and TypeScript stack",
+    "React/Vite frontend",
+    "separate Node API",
+    "existing Agent Contract v1"
+  ],
   "successCriteria": [
     "preserve existing Agent Contract v1",
     "configure lint, typecheck, test, build, and runtime verification",
     "provide a real API health endpoint and test",
     "record provenance-safe evidence",
     "preserve raw command output",
-    "do not add production secrets or deploy to production"
+    "do not add production secrets or deploy to production",
+    "raw command output is preserved in checkpoint/raw-results.txt"
   ],
-  "scope": ["apps/web", "apps/api", "packages/contracts", "packages/shared", "scripts/", "docs/", "checkpoint/", "Makefile"],
-  "state": "RUNNING",
+  "scope": [
+    "apps/web",
+    "apps/api",
+    "packages/contracts",
+    "packages/shared",
+    "scripts/",
+    "docs/",
+    "checkpoint/",
+    "Makefile"
+  ],
+  "state": "COMPLETED",
   "blocker": null
 }
